@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>get()与eq()区别</title>
+	<script type="text/javascript" src="frameworks/jquery-2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $lis = $("ul li");
+		//get()
+			//无参数时,返回所有匹配到的DOM节点，节点包含在一个标准数组中
+			console.log("get无参数时:",$lis.get());		// [li, li, li]
+			//参数：选择器返回的jquery类数组中元素的索引
+			console.log("get:",$lis.get(1));			// <li>
+			//参数超过范围或为负数，结果为undefined
+			console.log("get:",$lis.get(5));			// undefined
+			
+		//eq()
+			参数：索引值，返回索引位置上的元素
+			console.log("eq:",$lis.eq(1));	//Object[li]
+
+		//两者区别：
+			// 1、get()返回的是DOM节点或者DOM节点组成的标准数组
+			// 2、eq(param)返回的是jquery对象
+		})
+	</script>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>
